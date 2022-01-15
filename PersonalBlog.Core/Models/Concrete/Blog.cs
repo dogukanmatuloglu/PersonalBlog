@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PersonalBlog.Core.Models
+namespace PersonalBlog.Core.Models.Concrete
 {
     public class Blog:BaseEntity
     {
