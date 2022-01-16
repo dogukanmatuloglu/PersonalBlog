@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonalBlog.Core.UnitOfWork
 {
-    interface IUnitOfWork
+    public interface IUnitOfWork
     {
         Task CommitAsync();
         void Commit();
