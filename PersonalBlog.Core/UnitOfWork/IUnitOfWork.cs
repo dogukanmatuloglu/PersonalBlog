@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersonalBlog.Core.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace PersonalBlog.Core.UnitOfWork
 {
     public interface IUnitOfWork
     {
+        IAuthorRepository Authors { get; }
+        IBlogRepository Blogs { get; }
         Task CommitAsync();
         void Commit();
     }

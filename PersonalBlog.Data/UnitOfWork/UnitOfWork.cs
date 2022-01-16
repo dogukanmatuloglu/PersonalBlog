@@ -1,4 +1,5 @@
-﻿using PersonalBlog.Core.UnitOfWork;
+﻿using PersonalBlog.Core.Repositories;
+using PersonalBlog.Core.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,15 @@ namespace PersonalBlog.Data.UnitOfWork
     {
         private readonly AppDbContext _context;
 
+
         public UnitOfWork(AppDbContext context)
         {
             _context = context;
         }
+
+        public IAuthorRepository Authors => throw new NotImplementedException();
+
+        public IBlogRepository Blogs => throw new NotImplementedException();
 
         public void Commit()
         {
