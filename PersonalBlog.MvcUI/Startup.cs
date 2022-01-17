@@ -6,10 +6,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PersonalBlog.Core.Repositories;
+using PersonalBlog.Core.Services;
 using PersonalBlog.Core.UnitOfWork;
 using PersonalBlog.Data;
 using PersonalBlog.Data.Repositories;
 using PersonalBlog.Data.UnitOfWork;
+using PersonalBlog.Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,12 +29,16 @@ namespace PersonalBlog.MvcUI
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IAuthorService, AuthorService>();
+            services.AddScoped<IBlogService, BlogService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped(typeof(IService<>), typeof(Service<>));
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddDbContext<AppDbContext>(x =>
             {
                 x.UseSqlServer(Configuration["ConnectionStrings:SqlConnection"].ToString(), x => x.MigrationsAssembly("PersonalBlog.Data")); 
             });
+            services.AddControllersWithViews();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -43,13 +49,12 @@ namespace PersonalBlog.MvcUI
             }
 
             app.UseRouting();
+            app.UseStaticFiles();
+            
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
