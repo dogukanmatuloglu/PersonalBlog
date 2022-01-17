@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PersonalBlog.Core.Services
 {
-    interface IAuthorService:IService<Author>
+    public interface IAuthorService:IService<Author>
     {
         Task<Author> GetWithBlogAsync(int authorid);
     }
