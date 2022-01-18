@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using PersonalBlog.Core.Models.Concrete;
 using PersonalBlog.Core.Services;
 using PersonalBlog.MvcUI.DTOs;
 using System;
@@ -26,5 +27,12 @@ namespace PersonalBlog.MvcUI.Areas.Admin.Controllers
            var Blogs= await _blogService.GetAllAsync();
             return View(_mapper.Map<IEnumerable<BlogDto>>(Blogs));
         }
+        [HttpPost]
+        public async Task<IActionResult> Insert(BlogDto blogDto)
+        {
+            await _blogService.AddAsync(_mapper.Map<Blog>(blogDto));
+            return View();
+        }
+
     }
 }
