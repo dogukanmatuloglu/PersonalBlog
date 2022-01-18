@@ -9,6 +9,7 @@ namespace PersonalBlog.Core.Models.Concrete
 {
     public class Author:BaseEntity
     {
+        
         public string Name { get; set; }
         public string Surname { get; set; }
         public string SocialLink { get; set; }

@@ -29,6 +29,7 @@ namespace PersonalBlog.MvcUI
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IAuthorService, AuthorService>();
             services.AddScoped<IBlogService, BlogService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
