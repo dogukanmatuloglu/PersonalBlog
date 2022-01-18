@@ -17,20 +17,28 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Data\" />
     <Folder Include="Models\" />
-    <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\images\" />
-    <Folder Include="wwwroot\js\" />
-    <Folder Include="wwwroot\lib\bootstrap\" />
-    <Folder Include="wwwroot\lib\bootstrap\dist\css\" />
-    <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
-    <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
-    <Folder Include="wwwroot\lib\jquery-validation\" />
-    <Folder Include="wwwroot\lib\jquery-validation\dist\" />
-    <Folder Include="wwwroot\lib\jquery\" />
-    <Folder Include="wwwroot\lib\jquery\dist\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\Home\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\Shared\_Layout.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\_ViewImports.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\_ViewStart.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
