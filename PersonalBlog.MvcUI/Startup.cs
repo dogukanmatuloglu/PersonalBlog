@@ -56,8 +56,11 @@ namespace PersonalBlog.MvcUI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
-                endpoints.MapAreaControllerRoute(name: "Area", areaName: "Admin", pattern: "Admin/{controller=Home}/{action=Index}");
-                endpoints.MapControllerRoute("AreaDefault", "{area:exists}/{controller=Home}/{action=Index}");
+                //    endpoints.MapControllerRoute(
+                //name: "areas",
+                //pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
             });
         }
     }
