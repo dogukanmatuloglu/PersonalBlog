@@ -13,6 +13,7 @@ namespace PersonalBlog.MvcUI.DTOs
         public string Title { get; set; }
         public string Content { get; set; }
         public string İmage { get; set; }
+        public int AuthorId { get; set; }
         public Author Author { get; set; }
 
 

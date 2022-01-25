@@ -34,7 +34,7 @@ namespace PersonalBlog.MvcUI.Areas.Admin.Controllers
         public async Task<IActionResult> Insert(BlogDto blogDto)
         {
             await _blogService.AddAsync(_mapper.Map<Blog>(blogDto));
-            return View();
+            return RedirectToAction("Index");
         }
 
         public async Task<IActionResult> Insert()
